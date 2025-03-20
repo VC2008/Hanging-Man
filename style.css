@@ -1,8 +1,11 @@
 .easy { background-color: aquamarine; border: 2px;}
 .medium {background-color: rgb(255, 216, 116); border: 2px;}
 .hard {background-color: rgb(255, 91, 124); border: 2px;}
-
+.random {background-color: darkgray; border: 2px;}
 h1{
+    color: blue;
+}
+h2{
     color: blue;
 }
 h3 {
