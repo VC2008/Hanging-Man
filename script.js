@@ -8,12 +8,19 @@ const wordList = [
     'love',
     'dreams',
     'laughs',
-    'Tomfoolery',
-    'Unfunny',
+    'tomfoolery',
+    'unfunny',
     'shenanigans',
     'hatred',
     'psychological',
     'exaggerated',
+    'coding',
+    'procrastination',
+    'emotion',
+    'happy',
+    'friend',
+    'fancy',
+    'phenomenal',
 ]
 
 //variable declaration
@@ -115,4 +122,33 @@ if (selectedWord.includes(guessedLetter)){
  inputField.value = ''
  document.getElementById('letterInput').focus()
 
+}
+
+function updateWrongGuess(guessedLetter){
+  wrongGuesses++
+  document.getElementById('wrongLetters').textContent += `${guessedLetter}`
+  //document.getElementById('hangman').src = 'imgs/hangman${6-wrongGuesses}.jpg'
+  
+  if (wrongGuesses === maxMistakes){
+    endGame(false)
+  }
+}
+
+function updateCorrectGuess(guessedLetter){
+    let newDisplayedWord =''
+
+    for (let i=0; i < selectedWord.length; i++){
+        if (selectedWord[i] === guessedLetter){
+            newDisplayedWord += guessedLetter
+        }else{
+        newDisplayedWord += displayedWord[i]
+        }
+    }
+
+    displayedWord = newDisplayedWord
+    updateUI()
+
+    if (!displayedWord.includes('_')) {
+        endGame(true)
+    }
 }
