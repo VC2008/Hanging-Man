@@ -21,6 +21,16 @@ const wordList = [
     'friend',
     'fancy',
     'phenomenal',
+    'linguistic',
+    'aquarium',
+    'script',
+    'commit',
+    'termination',
+    'fifty',
+    'hope',
+    'gift',
+    'extraordinary',
+    'fool',
 ]
 
 //variable declaration
@@ -127,7 +137,7 @@ if (selectedWord.includes(guessedLetter)){
 function updateWrongGuess(guessedLetter){
   wrongGuesses++
   document.getElementById('wrongLetters').textContent += `${guessedLetter}`
-  //document.getElementById('hangman').src = 'imgs/hangman${6-wrongGuesses}.jpg'
+  document.getElementById('Glaggle').src = 'imgs/hangman${6-wrongGuesses}.svg'
   
   if (wrongGuesses === maxMistakes){
     endGame(false)
@@ -151,4 +161,17 @@ function updateCorrectGuess(guessedLetter){
     if (!displayedWord.includes('_')) {
         endGame(true)
     }
+}
+
+function endGame(won){
+    let message = won
+        ? `Woaaahh that was so coool good job on guessing the word ${selectedWord}`
+
+        : `Ran out of letters dumbo! btw your word was ${selectedWord}`
+
+        setTimeout(() => alert(message), 100) 
+}
+
+function restartGame(){
+    location.reload()
 }
