@@ -137,10 +137,24 @@ if (selectedWord.includes(guessedLetter)){
 function updateWrongGuess(guessedLetter){
   wrongGuesses++
   document.getElementById('wrongLetters').textContent += `${guessedLetter}`
-  document.getElementById('Glaggle').src = 'imgs/hangman${6-wrongGuesses}.svg'
+  document.getElementById('Glaggle').src = 'IMGS/Gaggle degrade 1.png'
+  if (wrongGuesses === 2){
+    document.getElementById('Glaggle').src = 'IMGS/Glaggle degrade 2.png'
+  }
+  if (wrongGuesses === 3){
+    document.getElementById('Glaggle').src = 'IMGS/Glaggle degrade 3.png'
+  }
+  if (wrongGuesses === 4){
+    document.getElementById('Glaggle').src = 'IMGS/Glaggle degrade 4.png'
+  }
+  if (wrongGuesses === 5){
+    document.getElementById('Glaggle').src = 'IMGS/Glaggle degrade 5.png'
+  }
+  //
   
   if (wrongGuesses === maxMistakes){
     endGame(false)
+    document.getElementById('Glaggle').src = 'IMGS/Glaggle degrade 6.png'
   }
 }
 

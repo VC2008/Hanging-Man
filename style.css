@@ -4,12 +4,15 @@
 .random {background-color: darkgray; border: 2px;}
 h1{
     color: blue;
+    border: 2px;
 }
 h2{
     color: blue;
+    border: 2px;
 }
 h3 {
     color: white;
+    border: 2px;
 }
 
 body{
