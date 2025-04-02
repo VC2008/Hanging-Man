@@ -184,8 +184,102 @@ function endGame(won){
         : `Ran out of letters dumbo! btw your word was ${selectedWord}`
 
         setTimeout(() => alert(message), 100) 
-}
+        let endMessage = document.getElementById('end');
+        endMessage.textContent = message; // Set the text content of the element
+        endMessage.classList.remove('d-none'); // Show the message
+        endMessage.classList.add('d-block'); // Ensure it's displayed properly
+    
+        // Hide the game area
+        document.getElementById('gameArea').classList.add('d-none');
+    
+        // Hide the difficulty box
+        document.getElementById('difficultyBox').classList.add('d-none'); // Hide the difficulty box
+    
+        // Show the difficulty selection buttons again
+        document.getElementById('difficultySelection').classList.remove('d-none');
+        document.getElementById('difficultySelection').classList.add('d-block');
+    
+        // Optional: Add a 3-second delay before resetting the game state
+        setTimeout(() => {
+            // Reset game variables
+            wrongGuesses = 0;
+            guessedLetters = [];
+            selectedWord = '';
+            displayedWord = '';
+            document.getElementById('Glaggle').src = 'IMGS/Glaggle.png';
+            document.getElementById('wrongLetters').innerText = ('Wrong Guesses:')
+            // Hide the end message
+            endMessage.classList.add('d-none');
+    
+            // Show the difficulty selection buttons
+            document.getElementById('difficultySelection').classList.remove('d-none');
+            document.getElementById('difficultySelection').classList.add('d-block');
+        }, 3000); // 3-second delay before showing difficulty selection
+    }
 
-function restartGame(){
-    location.reload()
+document.getElementById('letterInput').addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+        guessLetter();
+    }
+});
+
+
+//restarting the game
+function restartGame(end) {
+    let message = end
+    ? ' Restarting...'
+    : `Restarting...`;
+
+let endMessage = document.getElementById('end');
+endMessage.textContent = message; 
+endMessage.classList.remove('d-none'); 
+endMessage.classList.add('d-block'); 
+
+// Hide the game area
+document.getElementById('gameArea').classList.add('d-none');
+
+
+document.getElementById('difficultyBox').classList.add('d-none'); 
+
+
+document.getElementById('difficultySelection').classList.remove('d-none');
+document.getElementById('difficultySelection').classList.add('d-block');
+
+
+setTimeout(() => {
+    // Reset game variables
+    wrongGuesses = 0;
+    guessedLetters = [];
+    selectedWord = '';
+    displayedWord = '';
+
+    document.getElementById('wrongLetters').innerText = ('Wrong Guesses:')
+    document.getElementById('Glaggle').src = 'IMGS/Glaggle.png';
+    
+   
+    endMessage.classList.add('d-none');
+
+    // Show the difficulty selection buttons
+    document.getElementById('difficultySelection').classList.remove('d-none');
+    document.getElementById('difficultySelection').classList.add('d-block');
+}, 3000); // 3-second delay before showing difficulty selection
+}
+function startGameAlt(level) {
+    // Reset game
+    wrongGuesses = 0;
+    guessedLetters = [];
+    selectedWord = prompt("Enter your desired word").toLowerCase();
+    displayedWord = '_'.repeat(selectedWord.length);
+    updateDifficultyDisplay(level);
+    updateUI();
+
+    // Show game area and difficulty display, hide selection button
+    document.getElementById('gameArea').classList.remove('d-none');
+    document.getElementById('gameArea').classList.add('d-block');
+
+    document.getElementById('difficultyBox').classList.remove('d-none');
+    document.getElementById('difficultyBox').classList.add('d-block');
+    document.getElementById('difficultySelection').classList.add('d-none');
+
+    document.getElementById('letterInput').focus(); // Type without clicking
 }
