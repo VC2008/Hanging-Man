@@ -111,13 +111,13 @@ function guessLetter () {
  if (!guessedLetter.match(/^[a-z]$/)){
     alert('Please enter a valid letter from a-z')
     inputField.value = ''
-    return
+    return;
  }  
 
  if(guessedLetters.includes(guessLetter)){
     alert('You already guessed this letter')
     inputField.value = ''
-    return
+    return;
  }
 
 guessedLetters.push(guessedLetter)
