@@ -273,7 +273,7 @@ setTimeout(() => {
     document.getElementById('difficultySelection').classList.add('d-block');
 }, 3000); // 3-second delay before showing difficulty selection
 }
-function startGameAlt(level) {
+function startGameTwo(level) {
     // Reset game
     wrongGuesses = 0;
     guessedLetters = [];
