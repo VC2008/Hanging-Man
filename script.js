@@ -176,6 +176,15 @@ function updateCorrectGuess(guessedLetter){
         endGame(true)
     }
 }
+//custom word thing
+function startGameAlt(level) {
+    wrongGuesses = 0;
+    guessedLetters = [];
+    selectedWord = prompt("Put in your own word!").toLowerCase();
+    displayedWord = '_'.repeat(selectedWord.length);
+    updateDifficultyDisplay(level);
+    updateUI();
+}
 
 function endGame(won){
     let message = won
